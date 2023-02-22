@@ -14,7 +14,7 @@ soup = BeautifulSoup(response.content, 'html.parser')
 # class_name = input('Look for class name: ')
 
 tag = 'div'
-class_name = 'asset-summary'
+class_name = 'asset-content'
 
 element_list = soup.find_all(tag, class_= class_name)
 print(f"Elements found: {len(element_list)}")
@@ -34,6 +34,8 @@ for e in element_list:
     row.append(date)
     row.append(clean(e.find('h3').get_text()))
     row.append(clean(e.find('p', class_='desktop summary').get_text()))
+    row.append(e.find('a')['href'])
+
     data.append(row)
 
 
