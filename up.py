@@ -39,7 +39,7 @@ for e in element_list:
 
 
 df = pd.DataFrame(data)
-df.to_csv('up.txt', index=None, sep='\t')
+df.to_csv('up.txt', index=False, sep='\t')
 
 print('Data scraped:')
 print(df)
